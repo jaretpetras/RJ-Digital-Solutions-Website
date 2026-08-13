@@ -3,235 +3,301 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RJ Digital Solutions | Websites, AI Tools, and Automations</title>
+    <title>RJ Digital Solutions | Lead Generation Systems for Service Businesses</title>
     <meta
       name="description"
-      content="RJ Digital Solutions builds websites, AI-powered tools, and automation systems for small businesses, creators, and founders."
+      content="RJ Digital Solutions builds conversion-focused websites, lead-generation funnels, and automated follow-up systems that help service businesses turn more opportunities into customers."
     >
-    <meta property="og:title" content="RJ Digital Solutions">
+    <link rel="canonical" href="https://github.com/jaretpetras/RJ-Digital-Solutions-Website">
+    <meta property="og:title" content="RJ Digital Solutions | Lead Generation Systems">
     <meta
       property="og:description"
-      content="Websites, AI tools, and automations built for modern businesses."
+      content="Conversion-focused websites, lead-generation funnels, and automated follow-up systems for service businesses."
     >
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/rj-digital-og.png">
+    <meta name="twitter:card" content="summary">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" type="module"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="site-header">
+    <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="RJ Digital Solutions home">
-        <span class="brand-mark">RJ</span>
-        <span>
-          <strong>RJ Digital</strong>
-          <small>Solutions</small>
-        </span>
+        <span class="brand-mark" aria-hidden="true">RJ</span>
+        <span class="brand-text">RJ Digital Solutions</span>
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#work">What we build</a>
-        <a href="#process">Process</a>
-        <a class="nav-cta" href="mailto:hello@rjdigitalsolutions.com?subject=Free%20consultation%20request">Book a call</a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-nav>
+        <a href="#solutions">Solutions</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#why-rj">Why RJ</a>
+        <a class="nav-cta" href="#lead-audit">Get a Free Lead Audit</a>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="top">
-        <div class="hero-copy">
-          <p class="eyebrow">AI-powered digital studio</p>
-          <h1>Websites, AI tools, and automations built for modern businesses.</h1>
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Digital systems for service businesses</p>
+          <h1>Turn More Website Visitors Into Qualified Leads</h1>
           <p class="hero-lede">
-            RJ Digital Solutions helps small businesses, creators, and founders turn ideas into polished digital systems that win trust, capture leads, and save time.
+            We build conversion-focused websites and automated follow-up systems that help service businesses capture, nurture, and convert more opportunities.
           </p>
-          <div class="hero-actions">
-            <a class="button primary" href="mailto:hello@rjdigitalsolutions.com?subject=Free%20consultation%20request">Book a free consultation</a>
-            <a class="button secondary" href="#work">See what we build</a>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button primary" href="#lead-audit">Get a Free Lead Audit</a>
+            <a class="button secondary" href="#how-it-works">See How It Works</a>
           </div>
+          <p class="microcopy">No obligation. Clear recommendations tailored to your business.</p>
         </div>
 
-        <div class="hero-visual" aria-label="Digital studio dashboard preview">
-          <div class="visual-topbar">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="visual-grid">
-            <div class="visual-panel lead-panel">
-              <small>Lead flow</small>
-              <strong>Website inquiry</strong>
-              <span>Routed to CRM + email follow-up</span>
-            </div>
-            <div class="visual-panel metric-panel">
-              <small>Automation</small>
-              <strong>14 hrs</strong>
-              <span>Manual work saved monthly</span>
-            </div>
-            <div class="visual-panel ai-panel">
-              <small>AI assistant</small>
-              <strong>Client FAQs</strong>
-              <span>Instant answers from your business info</span>
-            </div>
-            <div class="visual-panel launch-panel">
-              <small>Launch page</small>
-              <strong>Ready</strong>
-              <span>Offer, copy, booking, analytics</span>
-            </div>
-          </div>
+        <div class="system-flow reveal" aria-label="Customer journey flow from visitor to booked appointment">
+          <div class="flow-line" aria-hidden="true"></div>
+          <article class="flow-node">
+            <span>01</span>
+            <strong>Visitor</strong>
+            <small>Finds your website</small>
+          </article>
+          <article class="flow-node">
+            <span>02</span>
+            <strong>Lead Captured</strong>
+            <small>Clear form or offer</small>
+          </article>
+          <article class="flow-node">
+            <span>03</span>
+            <strong>Follow-Up</strong>
+            <small>Fast, consistent response</small>
+          </article>
+          <article class="flow-node">
+            <span>04</span>
+            <strong>Appointment Booked</strong>
+            <small>Next step is simple</small>
+          </article>
         </div>
       </section>
 
-      <section class="problem-section">
-        <div>
+      <section class="problem-section reveal">
+        <div class="section-kicker">
           <p class="eyebrow">The problem</p>
-          <h2>Your business should not be held together by old pages, manual tasks, and scattered tools.</h2>
+          <h2>Your Business Could Be Losing Leads Without Realizing It</h2>
         </div>
-        <p>
-          You do not need more random software. You need the right digital system built around how your business actually works, from first click to booked call, paid invoice, or organized client request.
-        </p>
-      </section>
-
-      <section class="section" id="services">
-        <div class="section-heading">
-          <p class="eyebrow">Services</p>
-          <h2>Practical digital builds with a clean business outcome.</h2>
-        </div>
-        <div class="service-grid">
-          <article>
-            <span class="card-icon">01</span>
-            <h3>Website Design & Development</h3>
-            <p>Landing pages, service websites, portfolios, booking pages, and launch pages that make your offer clear and easy to act on.</p>
-          </article>
-          <article>
-            <span class="card-icon">02</span>
-            <h3>AI-Powered Business Tools</h3>
-            <p>Custom assistants, intake flows, FAQ tools, content helpers, client portals, and internal workflows built around your business knowledge.</p>
-          </article>
-          <article>
-            <span class="card-icon">03</span>
-            <h3>Automation Systems</h3>
-            <p>Forms, email follow-up, CRM updates, calendar booking, lead routing, spreadsheets, payments, and admin tasks connected into one flow.</p>
-          </article>
-          <article>
-            <span class="card-icon">04</span>
-            <h3>Digital Strategy & Launch Support</h3>
-            <p>Offer positioning, copywriting, conversion improvements, practical AI adoption, and support turning a rough idea into a real launch.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="why-section">
-        <div class="why-copy">
-          <p class="eyebrow">Why RJ Digital Solutions</p>
-          <h2>Fast builds. Sharp design. Systems people can actually use.</h2>
+        <div class="problem-copy">
           <p>
-            We keep the work focused: understand the bottleneck, design the right experience, build the digital piece, and leave you with something that looks professional and works cleanly.
+            A website alone is not enough. When potential customers encounter confusing pages, slow responses, complicated booking, or inconsistent follow-up, they move on to a competitor.
+          </p>
+          <ul class="problem-list">
+            <li><span></span>Visitors leave without taking action</li>
+            <li><span></span>New inquiries receive slow responses</li>
+            <li><span></span>Leads fall through the cracks</li>
+            <li><span></span>You cannot clearly track what is working</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="solution-section reveal" id="solutions">
+        <div class="section-heading">
+          <p class="eyebrow">The solution</p>
+          <h2>One Connected System for Turning Interest Into Customers</h2>
+          <p>
+            We connect every step of your customer journey, from the first website visit to the booked appointment, so your business can capture more opportunities with less manual work.
           </p>
         </div>
-        <div class="why-list">
-          <div><strong>Practical AI</strong><span>No gimmicks. Just tools that answer questions, organize work, or speed up decisions.</span></div>
-          <div><strong>Small-business fit</strong><span>Built for owners who need momentum, clarity, and less manual follow-up.</span></div>
-          <div><strong>Clean communication</strong><span>Simple scopes, clear priorities, and a launch path you can understand.</span></div>
+        <div class="journey" aria-label="Connected customer journey">
+          <div class="journey-step"><span>Attract</span></div>
+          <div class="journey-connector" aria-hidden="true"></div>
+          <div class="journey-step"><span>Capture</span></div>
+          <div class="journey-connector" aria-hidden="true"></div>
+          <div class="journey-step"><span>Follow Up</span></div>
+          <div class="journey-connector" aria-hidden="true"></div>
+          <div class="journey-step"><span>Book</span></div>
+          <div class="journey-connector" aria-hidden="true"></div>
+          <div class="journey-step"><span>Track</span></div>
         </div>
       </section>
 
-      <section class="section" id="work">
+      <section class="core-section reveal">
         <div class="section-heading">
-          <p class="eyebrow">What we build</p>
-          <h2>Digital pieces that make your business look sharper and run smoother.</h2>
+          <h2>Everything Your Business Needs to Convert More Leads</h2>
+          <p>Every solution is customized around your business, customers, and sales process.</p>
         </div>
-        <div class="use-case-grid">
+        <div class="solution-grid">
           <article>
-            <h3>Local service websites</h3>
-            <p>High-trust pages with clear services, social proof, booking links, and lead capture.</p>
+            <div class="css-icon website-icon" aria-hidden="true"></div>
+            <h3>Conversion-Focused Websites</h3>
+            <p>Modern websites and landing pages designed to turn visitors into qualified inquiries.</p>
           </article>
           <article>
-            <h3>Lead capture systems</h3>
-            <p>Forms that qualify prospects, trigger follow-up, and send clean details where they belong.</p>
+            <div class="css-icon funnel-icon" aria-hidden="true"></div>
+            <h3>Lead Generation Systems</h3>
+            <p>Forms, assessments, offers, booking flows, and funnels that capture the right prospects.</p>
           </article>
           <article>
-            <h3>Custom AI assistants</h3>
-            <p>Private or public assistants trained on your services, FAQs, policies, offers, and documents.</p>
-          </article>
-          <article>
-            <h3>Client intake workflows</h3>
-            <p>Structured request forms that organize details before the first call or project kickoff.</p>
-          </article>
-          <article>
-            <h3>Business dashboards</h3>
-            <p>Simple views for leads, appointments, invoices, content, projects, or operations.</p>
-          </article>
-          <article>
-            <h3>Offer launch pages</h3>
-            <p>Focused pages for new services, products, events, challenges, or paid resources.</p>
+            <div class="css-icon follow-icon" aria-hidden="true"></div>
+            <h3>Automated Follow-Up</h3>
+            <p>Email, SMS, CRM, and pipeline systems that respond quickly and keep leads moving.</p>
           </article>
         </div>
       </section>
 
-      <section class="process-section" id="process">
+      <section class="process-section reveal" id="how-it-works">
         <div class="section-heading">
-          <p class="eyebrow">Process</p>
-          <h2>From rough idea to launched system.</h2>
+          <p class="eyebrow">Our process</p>
+          <h2>From Missed Opportunities to a Complete System</h2>
         </div>
-        <div class="process-grid">
-          <article>
-            <span>1</span>
-            <h3>Discover</h3>
-            <p>We learn your offer, audience, current tools, and the bottleneck you want fixed.</p>
-          </article>
-          <article>
-            <span>2</span>
-            <h3>Build</h3>
-            <p>We design and develop the website, AI tool, automation, or workflow that fits the goal.</p>
-          </article>
-          <article>
-            <span>3</span>
-            <h3>Launch</h3>
-            <p>We test, refine, hand off, and help you start using the system with confidence.</p>
-          </article>
-        </div>
+        <ol class="timeline">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Audit</h3>
+              <p>We review your website, lead flow, follow-up, and customer journey.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Build</h3>
+              <p>We create and connect the digital tools your business needs.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Launch</h3>
+              <p>We test the complete system and put it into action.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Improve</h3>
+              <p>We track performance and optimize the system over time.</p>
+            </div>
+          </li>
+        </ol>
       </section>
 
-      <section class="audience-section">
+      <section class="benefits-section reveal" id="why-rj">
         <div>
-          <p class="eyebrow">Built for</p>
-          <h2>Owners, creators, and teams who need the digital side handled.</h2>
+          <p class="eyebrow">Built for growth</p>
+          <h2>A Better System Behind Your Business</h2>
+          <ul class="benefit-list">
+            <li>Capture more qualified leads</li>
+            <li>Respond to inquiries faster</li>
+            <li>Book more appointments</li>
+            <li>Reduce repetitive administrative work</li>
+            <li>Understand where opportunities come from</li>
+          </ul>
         </div>
-        <div class="audience-tags" aria-label="Ideal clients">
-          <span>Local service businesses</span>
-          <span>Coaches and consultants</span>
-          <span>Creators and personal brands</span>
-          <span>Founders and startups</span>
-          <span>Real estate teams</span>
-          <span>Fitness and wellness brands</span>
-          <span>Trades and professional services</span>
+        <div class="merge-visual" aria-hidden="true">
+          <div class="source-tool">Website</div>
+          <div class="source-tool">Forms</div>
+          <div class="source-tool">Booking</div>
+          <div class="source-tool">Pipeline</div>
+          <div class="merge-line line-one"></div>
+          <div class="merge-line line-two"></div>
+          <div class="merge-line line-three"></div>
+          <div class="merge-line line-four"></div>
+          <div class="system-core">Connected<br>System</div>
         </div>
       </section>
 
-      <section class="final-cta">
+      <section class="final-cta reveal">
         <p class="eyebrow">Start with clarity</p>
-        <h2>Ready to build the digital system your business actually needs?</h2>
-        <p>Bring the idea, bottleneck, or outdated website. We will help shape the right build and map the fastest path to launch.</p>
-        <a class="button primary" href="mailto:hello@rjdigitalsolutions.com?subject=Free%20consultation%20request">Book a free consultation</a>
+        <h2>Find Out Where Your Business Is Losing Leads</h2>
+        <p>
+          Get a free audit of your current website and lead-generation process. We will identify the biggest gaps and show you what to improve.
+        </p>
+        <a class="button primary" href="#lead-audit">Get My Free Lead Audit</a>
+        <small>No obligation. Clear recommendations tailored to your business.</small>
+      </section>
+
+      <section class="form-section reveal" id="lead-audit">
+        <div class="form-intro">
+          <p class="eyebrow">Free lead audit</p>
+          <h2>Request My Free Audit</h2>
+          <p>
+            Share a few details about your business. If a submission backend is not connected yet, the page will save your request in this browser and prepare a direct email so the information is not lost.
+          </p>
+        </div>
+
+        <form class="audit-form" novalidate data-audit-form>
+          <div class="honeypot" aria-hidden="true">
+            <label for="company-url">Company URL</label>
+            <input id="company-url" name="companyUrl" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="full-name">Full name</label>
+            <input id="full-name" name="fullName" type="text" autocomplete="name" required>
+            <p class="field-error" id="full-name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="business-name">Business name</label>
+            <input id="business-name" name="businessName" type="text" autocomplete="organization" required>
+            <p class="field-error" id="business-name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="business-website">Business website</label>
+            <input id="business-website" name="businessWebsite" type="url" autocomplete="url" placeholder="https://example.com" required>
+            <p class="field-error" id="business-website-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="email-address">Email address</label>
+            <input id="email-address" name="emailAddress" type="email" autocomplete="email" required>
+            <p class="field-error" id="email-address-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="phone-number">Phone number</label>
+            <input id="phone-number" name="phoneNumber" type="tel" autocomplete="tel" required>
+            <p class="field-error" id="phone-number-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="business-type">Type of business</label>
+            <input id="business-type" name="businessType" type="text" required>
+            <p class="field-error" id="business-type-error"></p>
+          </div>
+
+          <div class="field full">
+            <label for="lead-challenge">Biggest lead-generation challenge</label>
+            <textarea id="lead-challenge" name="leadChallenge" rows="5" required></textarea>
+            <p class="field-error" id="lead-challenge-error"></p>
+          </div>
+
+          <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+          <button class="button primary submit-button" type="submit" data-submit-button>Request My Free Audit</button>
+        </form>
       </section>
     </main>
 
     <footer class="site-footer">
-      <a class="brand" href="#top" aria-label="RJ Digital Solutions home">
-        <span class="brand-mark">RJ</span>
-        <span>
-          <strong>RJ Digital</strong>
-          <small>Solutions</small>
-        </span>
-      </a>
-      <div class="footer-links">
-        <a href="#services">Services</a>
-        <a href="#work">What we build</a>
-        <a href="#process">Process</a>
-        <a href="mailto:hello@rjdigitalsolutions.com">hello@rjdigitalsolutions.com</a>
+      <div>
+        <a class="brand" href="#top" aria-label="RJ Digital Solutions home">
+          <span class="brand-mark" aria-hidden="true">RJ</span>
+          <span class="brand-text">RJ Digital Solutions</span>
+        </a>
+        <p>Digital systems designed to generate growth.</p>
       </div>
-      <p>Websites - AI tools - Automations</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#solutions">Solutions</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#why-rj">Why RJ</a>
+        <a href="mailto:hello@rjdigitalsolutions.com">Contact</a>
+        <a href="#" aria-label="Privacy Policy placeholder">Privacy Policy</a>
+      </nav>
+      <small>&copy; <span data-year></span> RJ Digital Solutions.</small>
     </footer>
   </body>
 </html>
