@@ -157,7 +157,7 @@ form?.addEventListener('submit', async (event) => {
     const subject = encodeURIComponent(`Free Lead Audit Request - ${payload.businessName}`)
     const body = encodeURIComponent(buildEmailBody(payload))
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
-    statusBox.textContent = 'Your request has been saved in this browser. A prefilled email is opening so it can be sent while the backend integration is pending.'
+    statusBox.textContent = 'Your request is saved in this browser. A prepared email is opening so you can send it now.'
     statusBox.className = 'form-status success'
     window.location.href = mailto
     form.reset()
