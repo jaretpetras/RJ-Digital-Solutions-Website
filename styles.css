@@ -310,7 +310,7 @@ h3 {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 10px;
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
     var(--black-2);
@@ -322,8 +322,8 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(8, 11, 16, 0.18), transparent 45%),
-    linear-gradient(180deg, transparent 72%, rgba(8, 11, 16, 0.42));
+    linear-gradient(90deg, rgba(8, 11, 16, 0.1), transparent 48%),
+    linear-gradient(180deg, transparent 76%, rgba(8, 11, 16, 0.34));
   content: "";
   pointer-events: none;
 }
@@ -331,10 +331,10 @@ h3 {
 .hero-image-wrap img {
   display: block;
   width: 100%;
-  min-height: 470px;
+  min-height: 430px;
   object-fit: cover;
-  object-position: center;
-  transform: scale(1.01);
+  object-position: center right;
+  transform: scale(1.005);
 }
 
 .strip {
@@ -667,7 +667,8 @@ input::placeholder {
   }
 
   .hero-image-wrap img {
-    min-height: 310px;
+    min-height: 280px;
+    object-position: 58% center;
   }
 
   .audit-form {
