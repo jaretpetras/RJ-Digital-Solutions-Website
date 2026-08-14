@@ -471,10 +471,10 @@ h3 {
 .final-cta,
 .form-section {
   border-bottom: 1px solid var(--line);
-  padding: clamp(6rem, 12vw, 10rem) 0;
+  padding: clamp(4.5rem, 9vw, 7.5rem) 0;
 }
 
-.problem-section,
+.offer-section,
 .timeline-section,
 .why-section,
 .form-section {
@@ -493,11 +493,11 @@ h3 {
   max-width: 560px;
 }
 
-.problem-list {
+.offer-list {
   display: grid;
 }
 
-.problem-list article {
+.offer-list article {
   display: grid;
   grid-template-columns: 92px 1fr;
   gap: clamp(1rem, 2vw, 1.75rem);
@@ -506,16 +506,16 @@ h3 {
   transition: border-color 180ms ease, transform 180ms ease;
 }
 
-.problem-list article:last-child {
+.offer-list article:last-child {
   border-bottom: 1px solid var(--line);
 }
 
-.problem-list article:hover {
+.offer-list article:hover {
   border-top-color: var(--line-strong);
   transform: translateX(4px);
 }
 
-.problem-list span,
+.offer-list span,
 .solution-number,
 .timeline > li > span {
   color: rgba(255, 255, 255, 0.28);
@@ -525,7 +525,7 @@ h3 {
   line-height: 1;
 }
 
-.problem-list p,
+.offer-list p,
 .timeline p,
 .benefit-grid p {
   margin: 0;
@@ -702,7 +702,7 @@ h3 {
   gap: clamp(2.5rem, 7vw, 6rem);
   align-items: center;
   border-top: 1px solid var(--line);
-  padding: clamp(6rem, 12vw, 10rem) 0;
+  padding: clamp(4.8rem, 9vw, 7.8rem) 0;
 }
 
 .solution-row.reverse {
@@ -1190,7 +1190,7 @@ input::placeholder {
 }
 
 @media (max-width: 900px) {
-  .problem-section,
+  .offer-section,
   .timeline-section,
   .why-section,
   .form-section,
@@ -1307,7 +1307,7 @@ input::placeholder {
     object-position: 58% center;
   }
 
-  .problem-list article {
+  .offer-list article {
     grid-template-columns: 58px 1fr;
   }
 
