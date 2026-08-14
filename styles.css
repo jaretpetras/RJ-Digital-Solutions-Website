@@ -476,6 +476,7 @@ h3 {
 }
 
 .offer-section,
+.who-section,
 .timeline-section,
 .why-section,
 .form-section {
@@ -858,9 +859,11 @@ h3 {
 
 .service-grid article,
 .category-grid article {
+  position: relative;
   display: grid;
   min-height: 245px;
   align-content: start;
+  overflow: visible;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: rgba(17, 24, 33, 0.34);
@@ -869,7 +872,9 @@ h3 {
 }
 
 .service-grid article:hover,
-.category-grid article:hover {
+.category-grid article:hover,
+.category-grid article:focus-within {
+  z-index: 4;
   border-color: var(--line-strong);
   background: rgba(17, 24, 33, 0.58);
   transform: translateY(-2px);
@@ -951,11 +956,46 @@ h3 {
   text-transform: uppercase;
 }
 
+.category-details {
+  position: absolute;
+  left: clamp(1rem, 2vw, 1.35rem);
+  right: clamp(1rem, 2vw, 1.35rem);
+  top: calc(100% - 0.7rem);
+  z-index: 5;
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: rgba(8, 11, 16, 0.96);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+  opacity: 0;
+  padding: 0.85rem;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.category-grid article:hover .category-details,
+.category-grid article:focus-within .category-details {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.category-details > span {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 .category-grid ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
-  margin: 0 0 1.5rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -1665,6 +1705,14 @@ input::placeholder {
   .service-grid article,
   .category-grid article {
     min-height: auto;
+  }
+
+  .category-details {
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    margin: 0 0 1.4rem;
   }
 
   .benefit-grid article,
