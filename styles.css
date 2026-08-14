@@ -1175,7 +1175,7 @@ h3 {
 
 .category-grid article {
   min-height: clamp(270px, 25vw, 360px);
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--line);
   border-radius: 12px;
 }
