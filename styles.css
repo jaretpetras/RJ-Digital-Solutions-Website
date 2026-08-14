@@ -616,34 +616,19 @@ h3 {
 
 .business-gallery {
   display: grid;
-  grid-template-columns: 1.08fr 0.92fr 1.08fr;
-  gap: clamp(0.8rem, 1.5vw, 1rem);
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
 }
 
 .business-gallery figure {
   position: relative;
-  min-height: clamp(250px, 23vw, 350px);
+  min-height: clamp(250px, 22vw, 330px);
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 999px 999px 14px 14px;
+  border-radius: 12px;
   margin: 0;
   background: var(--surface);
   transition: border-color 160ms ease, transform 160ms ease;
-}
-
-.business-gallery figure:first-child {
-  border-radius: 14px 999px 999px 14px;
-}
-
-.business-gallery figure:nth-child(2) {
-  min-height: clamp(310px, 29vw, 430px);
-  border-color: var(--line-strong);
-  border-radius: 999px;
-}
-
-.business-gallery figure:nth-child(3) {
-  border-radius: 999px 14px 14px 999px;
 }
 
 .business-gallery figure:hover {
@@ -652,14 +637,10 @@ h3 {
   transform: translateY(-2px);
 }
 
-.business-gallery figure:nth-child(2):hover {
-  transform: translateY(-2px);
-}
-
 .business-gallery figure::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 42%, rgba(8, 11, 16, 0.86));
+  background: linear-gradient(180deg, transparent 38%, rgba(8, 11, 16, 0.82));
   content: "";
 }
 
@@ -698,34 +679,35 @@ h3 {
 
 .photo-panel-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.35rem);
+  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-rows: repeat(2, minmax(190px, 1fr));
+  gap: 0.8rem;
 }
 
 .what-do-grid {
-  align-items: end;
+  align-items: stretch;
 }
 
 .photo-panel-grid article {
   position: relative;
-  min-height: clamp(285px, 27vw, 390px);
+  min-height: clamp(220px, 22vw, 320px);
   overflow: hidden;
   border: 1px solid var(--line-strong);
-  border-radius: 14px;
+  border-radius: 12px;
   background: var(--surface);
 }
 
 .what-do-grid article:nth-child(1) {
-  min-height: clamp(320px, 30vw, 430px);
+  grid-row: span 2;
+  min-height: clamp(380px, 35vw, 520px);
 }
 
 .what-do-grid article:nth-child(2) {
-  min-height: clamp(390px, 36vw, 520px);
-  transform: translateY(-1.5rem);
+  min-height: auto;
 }
 
 .what-do-grid article:nth-child(3) {
-  min-height: clamp(300px, 28vw, 400px);
+  min-height: auto;
 }
 
 .photo-panel-grid article::after {
@@ -764,7 +746,7 @@ h3 {
 }
 
 .what-do-grid h3 {
-  font-size: clamp(1.55rem, 2.15vw, 2rem);
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
 }
 
 .offer-list article {
@@ -1837,6 +1819,7 @@ input::placeholder {
 
   .photo-panel-grid {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
   }
 }
 
@@ -2011,18 +1994,13 @@ input::placeholder {
   }
 
   .business-gallery figure,
-  .business-gallery figure:nth-child(2),
-  .business-gallery figure:hover,
-  .business-gallery figure:nth-child(2):hover {
+  .business-gallery figure:hover {
     transform: none;
   }
 
-  .business-gallery figure:first-child,
-  .business-gallery figure:nth-child(2),
-  .business-gallery figure:nth-child(3),
-  .what-do-grid article:nth-child(1),
-  .what-do-grid article:nth-child(3) {
-    border-radius: 12px;
+  .what-do-grid article:nth-child(1) {
+    grid-row: auto;
+    min-height: clamp(250px, 65vw, 340px);
   }
 
   .what-do-grid article:nth-child(2) {
