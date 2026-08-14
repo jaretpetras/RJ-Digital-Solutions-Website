@@ -281,6 +281,10 @@ img {
   padding: clamp(5rem, 9vw, 8rem) 0 clamp(3.5rem, 7vw, 6rem);
 }
 
+.compact-hero {
+  min-height: calc(92vh - 72px);
+}
+
 .eyebrow {
   margin: 0 0 0.9rem;
   color: var(--cyan);
@@ -807,6 +811,75 @@ h3 {
 
 .solutions {
   border-bottom: 1px solid var(--line);
+}
+
+.service-menu {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.service-menu-heading {
+  max-width: 790px;
+}
+
+.service-menu-heading p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: clamp(1.03rem, 1.45vw, 1.18rem);
+  line-height: 1.65;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.service-grid article {
+  display: grid;
+  min-height: 245px;
+  align-content: start;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(17, 24, 33, 0.34);
+  padding: clamp(1rem, 2vw, 1.35rem);
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.service-grid article:hover {
+  border-color: var(--line-strong);
+  background: rgba(17, 24, 33, 0.58);
+  transform: translateY(-2px);
+}
+
+.service-grid .featured-service {
+  border-color: var(--cyan-line);
+  background: linear-gradient(180deg, rgba(0, 215, 232, 0.1), rgba(17, 24, 33, 0.42));
+}
+
+.service-grid h3 {
+  font-size: clamp(1.1rem, 1.6vw, 1.42rem);
+}
+
+.service-grid p {
+  margin-bottom: 1.4rem;
+  color: var(--muted);
+}
+
+.service-grid a {
+  align-self: end;
+  justify-self: start;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.service-grid a:hover {
+  color: var(--cyan-hover);
 }
 
 .solution-row {
@@ -1351,6 +1424,10 @@ input::placeholder {
   .comparison-grid {
     grid-template-columns: 1fr;
   }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
@@ -1490,6 +1567,14 @@ input::placeholder {
   .benefit-grid,
   .audit-form {
     grid-template-columns: 1fr;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-grid article {
+    min-height: auto;
   }
 
   .benefit-grid article,

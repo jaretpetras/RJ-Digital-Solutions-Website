@@ -17,6 +17,7 @@ const year = document.querySelector('[data-year]')
 const form = document.querySelector('[data-audit-form]')
 const statusBox = document.querySelector('[data-form-status]')
 const submitButton = document.querySelector('[data-submit-button]')
+const serviceInterest = document.querySelector('[data-service-interest]')
 const trackedElements = [...document.querySelectorAll('[data-track]')]
 
 function getAttribution() {
@@ -50,6 +51,18 @@ trackEvent('landing_page_view')
 trackedElements.forEach((element) => {
   element.addEventListener('click', () => {
     trackEvent(element.dataset.track, { label: element.dataset.trackLabel || element.textContent.trim() })
+  })
+})
+
+document.querySelectorAll('[data-service]').forEach((element) => {
+  element.addEventListener('click', () => {
+    const service = element.dataset.service
+    if (serviceInterest) serviceInterest.value = service
+    if (statusBox) {
+      statusBox.textContent = `Interested in: ${service}. Send the audit request and we will start there.`
+      statusBox.className = 'form-status'
+    }
+    trackEvent('service_interest_selected', { service })
   })
 })
 
@@ -140,7 +153,7 @@ function validateField(field) {
 
 function buildEmailBody(payload) {
   return [
-    'Free AI Automation Audit Request',
+    'Free Lead Audit Request',
     '',
     `Full name: ${payload.fullName}`,
     `Business name: ${payload.businessName}`,
@@ -148,6 +161,7 @@ function buildEmailBody(payload) {
     `Email address: ${payload.emailAddress}`,
     `Phone number: ${payload.phoneNumber}`,
     `Approx. monthly lead volume: ${payload.leadVolume}`,
+    `Interested service/product: ${payload.serviceInterest || 'Not specified'}`,
     '',
     'Biggest bottleneck:',
     payload.leadChallenge,
@@ -191,7 +205,7 @@ form?.addEventListener('submit', async (event) => {
 
   try {
     await submitLeadAuditRequest(payload)
-    const subject = encodeURIComponent(`Free AI Automation Audit Request - ${payload.businessName}`)
+    const subject = encodeURIComponent(`Free Lead Audit Request - ${payload.businessName}`)
     const body = encodeURIComponent(buildEmailBody(payload))
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
     trackEvent('form_completed', { businessName: payload.businessName })
@@ -204,6 +218,6 @@ form?.addEventListener('submit', async (event) => {
     statusBox.className = 'form-status error'
   } finally {
     submitButton.disabled = false
-    submitButton.textContent = 'Book My Free AI Automation Audit'
+    submitButton.textContent = 'Request My Free Lead Audit'
   }
 })

@@ -1,6 +1,6 @@
 # RJ Digital Solutions
 
-Landing page for RJ Digital Solutions, an AI automation and digital systems studio helping service businesses find lead leaks, reduce repetitive admin work, automate follow-up, book more qualified calls, and connect customer workflows.
+Landing page for RJ Digital Solutions, a lead systems and digital solutions studio helping service businesses find lead leaks, build better websites and automations, generate traction, and turn more attention into booked calls.
 
 ## Local preview
 
