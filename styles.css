@@ -657,24 +657,50 @@ h3 {
   display: grid;
 }
 
-.icon-panel-grid {
+.photo-panel-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  gap: 0.85rem;
 }
 
-.icon-panel-grid article {
-  display: grid;
-  gap: 1.35rem;
-  min-height: 240px;
-  align-content: center;
-  background: rgba(17, 24, 33, 0.52);
-  padding: clamp(1.25rem, 3vw, 2rem);
+.photo-panel-grid article {
+  position: relative;
+  min-height: clamp(260px, 28vw, 380px);
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--surface);
 }
 
-.icon-panel-grid h3 {
+.photo-panel-grid article::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 36%, rgba(0, 0, 0, 0.76));
+  content: "";
+}
+
+.photo-panel-grid img,
+.category-grid article > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.04);
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.photo-panel-grid article:hover img,
+.category-grid article:hover > img {
+  filter: saturate(1) contrast(1.08);
+  transform: scale(1.025);
+}
+
+.photo-panel-grid h3 {
+  position: absolute;
+  left: clamp(1rem, 2vw, 1.35rem);
+  right: clamp(1rem, 2vw, 1.35rem);
+  bottom: clamp(1rem, 2vw, 1.35rem);
+  z-index: 1;
   max-width: 300px;
   margin: 0;
   font-size: var(--card-title-size);
@@ -697,28 +723,6 @@ h3 {
 .offer-list article:hover {
   border-top-color: var(--line-strong);
   transform: translateX(4px);
-}
-
-.mini-icon {
-  display: grid;
-  width: 64px;
-  height: 64px;
-  place-items: center;
-  border: 1px solid var(--cyan-line);
-  border-radius: 14px;
-  background: var(--cyan-soft);
-  color: var(--cyan);
-}
-
-.mini-icon svg,
-.category-icon svg {
-  width: 28px;
-  height: 28px;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.8;
 }
 
 .offer-list span,
@@ -1052,9 +1056,17 @@ h3 {
   overflow: visible;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(17, 24, 33, 0.34);
-  padding: clamp(1rem, 2vw, 1.35rem);
+  background: var(--surface);
+  padding: 0;
   transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.category-grid article::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 28%, rgba(8, 11, 16, 0.86));
+  content: "";
+  pointer-events: none;
 }
 
 .service-grid article:hover,
@@ -1075,6 +1087,15 @@ h3 {
 .service-grid h3,
 .category-grid h3 {
   font-size: var(--card-title-size);
+}
+
+.category-grid > article > h3 {
+  position: absolute;
+  left: clamp(1rem, 2vw, 1.35rem);
+  right: clamp(1rem, 2vw, 1.35rem);
+  bottom: clamp(1rem, 2vw, 1.35rem);
+  z-index: 1;
+  margin: 0;
 }
 
 .service-grid p,
@@ -1105,36 +1126,14 @@ h3 {
 }
 
 .category-grid article {
-  min-height: 255px;
-}
-
-.category-icon {
-  display: grid;
-  width: 70px;
-  height: 70px;
-  place-items: center;
-  border: 1px solid var(--line-strong);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--cyan);
-  margin-bottom: 1.1rem;
-}
-
-.category-icon svg {
-  width: 32px;
-  height: 32px;
-}
-
-.category-grid .featured-service .category-icon {
-  border-color: var(--cyan-line);
-  background: var(--cyan-soft);
+  min-height: clamp(270px, 25vw, 360px);
 }
 
 .category-details {
   position: absolute;
   left: clamp(1rem, 2vw, 1.35rem);
   right: clamp(1rem, 2vw, 1.35rem);
-  top: calc(100% - 1rem);
+  top: calc(100% - 0.8rem);
   z-index: 5;
   display: grid;
   gap: 0.75rem;
@@ -1520,6 +1519,18 @@ h3 {
   padding: clamp(1rem, 3vw, 1.5rem);
 }
 
+.form-toggle {
+  margin-top: 1.25rem;
+}
+
+.form-panel {
+  align-self: start;
+}
+
+.form-panel[hidden] {
+  display: none;
+}
+
 .field {
   display: grid;
   gap: 0.42rem;
@@ -1745,7 +1756,7 @@ input::placeholder {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .icon-panel-grid {
+  .photo-panel-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1924,12 +1935,24 @@ input::placeholder {
     min-height: auto;
   }
 
+  .category-grid article > img {
+    height: 230px;
+  }
+
+  .category-grid > article > h3 {
+    top: 165px;
+    bottom: auto;
+  }
+
   .category-details {
     position: static;
     opacity: 1;
     pointer-events: auto;
     transform: none;
-    margin: 0 0 1.4rem;
+    margin: 0;
+    border-width: 1px 0 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .benefit-grid article,

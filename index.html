@@ -90,23 +90,17 @@
         <div class="section-kicker">
           <p class="eyebrow">What we do</p>
         </div>
-        <div class="icon-panel-grid what-do-grid">
+        <div class="photo-panel-grid what-do-grid">
           <article>
-            <span class="mini-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"></circle><path d="m16 16 4 4"></path></svg>
-            </span>
+            <img src="https://www.visa.com.tt/content/dam/VCOM/regional/lac/ENG/Default/small-business/natural-store-men-1600x900.jpg" alt="Small retail business owner at a checkout counter">
             <h3>Find the leaks</h3>
           </article>
           <article>
-            <span class="mini-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h10"></path><path d="M4 17h7"></path><path d="M17 14l3 3-3 3"></path></svg>
-            </span>
+            <img src="assets/hero-business-system.png" alt="Small business owners reviewing an automated lead system on a laptop">
             <h3>Build the systems</h3>
           </article>
           <article>
-            <span class="mini-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg>
-            </span>
+            <img src="https://cdn.shopify.com/s/files/1/0575/0295/7766/files/Blog_In_Text_Images_LS_9.png?v=1747824653" alt="Upscale restaurant owner in a professional kitchen">
             <h3>Save businesses time and money</h3>
           </article>
         </div>
@@ -120,9 +114,7 @@
 
         <div class="category-grid">
           <article>
-            <span class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"></path><path d="M8 10h8"></path><path d="M8 14h5"></path><path d="M17 14h3"></path></svg>
-            </span>
+            <img src="https://www.visa.com.tt/content/dam/VCOM/regional/lac/ENG/Default/small-business/natural-store-men-1600x900.jpg" alt="Small retail business owner at a checkout counter">
             <h3>Lead Generation Systems</h3>
             <div class="category-details">
               <span>Includes</span>
@@ -136,9 +128,7 @@
             </div>
           </article>
           <article>
-            <span class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M5 7h9"></path><path d="M5 12h7"></path><path d="M5 17h5"></path><path d="M15 15l2 2 4-5"></path></svg>
-            </span>
+            <img src="https://cdn.shopify.com/s/files/1/0575/0295/7766/files/Blog_In_Text_Images_LS_9.png?v=1747824653" alt="Upscale restaurant owner in a professional kitchen">
             <h3>Lead Conversion</h3>
             <div class="category-details">
               <span>Includes</span>
@@ -152,9 +142,7 @@
             </div>
           </article>
           <article>
-            <span class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 19h16"></path><path d="M7 16V9"></path><path d="M12 16V5"></path><path d="M17 16v-6"></path></svg>
-            </span>
+            <img src="assets/hero-business-system.png" alt="Small business owners reviewing an automated lead system on a laptop">
             <h3>Tracking</h3>
             <div class="category-details">
               <span>Includes</span>
@@ -168,9 +156,7 @@
             </div>
           </article>
           <article>
-            <span class="category-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h10"></path><path d="M4 17h7"></path><path d="M17 14l3 3-3 3"></path></svg>
-            </span>
+            <img src="https://images.squarespace-cdn.com/content/v1/61d0e1c0980b755a9c7a1400/2c650ecf-3769-4850-b127-485441a98630/Home%2BConcierge%2B-%2BWillowHome" alt="Home service team beside a work van">
             <h3>Automation</h3>
             <div class="category-details">
               <span>Includes</span>
@@ -191,61 +177,66 @@
           <p class="eyebrow">Free lead audit</p>
           <h2>Where are leads getting stuck?</h2>
           <p>This opens a prepared email until the backend is connected.</p>
+          <button class="button primary form-toggle" type="button" aria-expanded="false" aria-controls="audit-form-panel" data-form-toggle>
+            Open Contact Form
+          </button>
         </div>
 
-        <form class="audit-form" novalidate data-audit-form>
-          <div class="honeypot" aria-hidden="true">
-            <label for="company-url">Company URL</label>
-            <input id="company-url" name="companyUrl" type="text" tabindex="-1" autocomplete="off">
-          </div>
+        <div class="form-panel" id="audit-form-panel" hidden data-form-panel>
+          <form class="audit-form" novalidate data-audit-form>
+            <div class="honeypot" aria-hidden="true">
+              <label for="company-url">Company URL</label>
+              <input id="company-url" name="companyUrl" type="text" tabindex="-1" autocomplete="off">
+            </div>
 
-          <input type="hidden" name="serviceInterest" data-service-interest>
+            <input type="hidden" name="serviceInterest" data-service-interest>
 
-          <div class="field">
-            <label for="full-name">Full name</label>
-            <input id="full-name" name="fullName" type="text" autocomplete="name" required>
-            <p class="field-error" id="full-name-error"></p>
-          </div>
+            <div class="field">
+              <label for="full-name">Full name</label>
+              <input id="full-name" name="fullName" type="text" autocomplete="name" required>
+              <p class="field-error" id="full-name-error"></p>
+            </div>
 
-          <div class="field">
-            <label for="business-name">Business</label>
-            <input id="business-name" name="businessName" type="text" autocomplete="organization" required>
-            <p class="field-error" id="business-name-error"></p>
-          </div>
+            <div class="field">
+              <label for="business-name">Business</label>
+              <input id="business-name" name="businessName" type="text" autocomplete="organization" required>
+              <p class="field-error" id="business-name-error"></p>
+            </div>
 
-          <div class="field">
-            <label for="email-address">Email</label>
-            <input id="email-address" name="emailAddress" type="email" autocomplete="email" required>
-            <p class="field-error" id="email-address-error"></p>
-          </div>
+            <div class="field">
+              <label for="email-address">Email</label>
+              <input id="email-address" name="emailAddress" type="email" autocomplete="email" required>
+              <p class="field-error" id="email-address-error"></p>
+            </div>
 
-          <div class="field">
-            <label for="phone-number">Phone</label>
-            <input id="phone-number" name="phoneNumber" type="tel" autocomplete="tel" required>
-            <p class="field-error" id="phone-number-error"></p>
-          </div>
+            <div class="field">
+              <label for="phone-number">Phone</label>
+              <input id="phone-number" name="phoneNumber" type="tel" autocomplete="tel" required>
+              <p class="field-error" id="phone-number-error"></p>
+            </div>
 
-          <div class="field">
-            <label for="business-website">Website or social profile</label>
-            <input id="business-website" name="businessWebsite" type="url" autocomplete="url" placeholder="https://example.com" required>
-            <p class="field-error" id="business-website-error"></p>
-          </div>
+            <div class="field">
+              <label for="business-website">Website or social profile</label>
+              <input id="business-website" name="businessWebsite" type="url" autocomplete="url" placeholder="https://example.com" required>
+              <p class="field-error" id="business-website-error"></p>
+            </div>
 
-          <div class="field">
-            <label for="lead-volume">Approx. monthly lead volume</label>
-            <input id="lead-volume" name="leadVolume" type="text" placeholder="Example: 20-50 leads/month" required>
-            <p class="field-error" id="lead-volume-error"></p>
-          </div>
+            <div class="field">
+              <label for="lead-volume">Approx. monthly lead volume</label>
+              <input id="lead-volume" name="leadVolume" type="text" placeholder="Example: 20-50 leads/month" required>
+              <p class="field-error" id="lead-volume-error"></p>
+            </div>
 
-          <div class="field full">
-            <label for="lead-challenge">What do you want help with?</label>
-            <textarea id="lead-challenge" name="leadChallenge" rows="4" placeholder="Lead leaks, website, follow-up, booking, CRM, reviews, local SEO, social media traction..." required></textarea>
-            <p class="field-error" id="lead-challenge-error"></p>
-          </div>
+            <div class="field full">
+              <label for="lead-challenge">What do you want help with?</label>
+              <textarea id="lead-challenge" name="leadChallenge" rows="4" placeholder="Lead leaks, website, follow-up, booking, CRM, reviews, local SEO, social media traction..." required></textarea>
+              <p class="field-error" id="lead-challenge-error"></p>
+            </div>
 
-          <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-          <button class="button primary submit-button" type="submit" data-submit-button data-track="form_submit_click">Request My Free Lead Audit</button>
-        </form>
+            <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+            <button class="button primary submit-button" type="submit" data-submit-button data-track="form_submit_click">Request My Free Lead Audit</button>
+          </form>
+        </div>
       </section>
     </main>
 

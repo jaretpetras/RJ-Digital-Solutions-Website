@@ -15,6 +15,8 @@ const nav = document.querySelector('[data-nav]')
 const navLinks = [...document.querySelectorAll('.site-nav a')]
 const year = document.querySelector('[data-year]')
 const form = document.querySelector('[data-audit-form]')
+const formToggle = document.querySelector('[data-form-toggle]')
+const formPanel = document.querySelector('[data-form-panel]')
 const statusBox = document.querySelector('[data-form-status]')
 const submitButton = document.querySelector('[data-submit-button]')
 const serviceInterest = document.querySelector('[data-service-interest]')
@@ -48,6 +50,32 @@ if (year) year.textContent = String(new Date().getFullYear())
 
 trackEvent('landing_page_view')
 
+function openFormPanel({ focus = false } = {}) {
+  if (!formPanel || !formToggle) return
+  formPanel.hidden = false
+  formPanel.classList.add('is-open')
+  formToggle.setAttribute('aria-expanded', 'true')
+  formToggle.textContent = 'Close Contact Form'
+  if (focus) form?.querySelector('input[required], textarea[required]')?.focus()
+}
+
+function closeFormPanel() {
+  if (!formPanel || !formToggle) return
+  formPanel.classList.remove('is-open')
+  formPanel.hidden = true
+  formToggle.setAttribute('aria-expanded', 'false')
+  formToggle.textContent = 'Open Contact Form'
+}
+
+formToggle?.addEventListener('click', () => {
+  const isOpen = formToggle.getAttribute('aria-expanded') === 'true'
+  if (isOpen) closeFormPanel()
+  else {
+    openFormPanel({ focus: true })
+    trackEvent('contact_form_opened')
+  }
+})
+
 trackedElements.forEach((element) => {
   element.addEventListener('click', () => {
     trackEvent(element.dataset.track, { label: element.dataset.trackLabel || element.textContent.trim() })
@@ -57,6 +85,7 @@ trackedElements.forEach((element) => {
 document.querySelectorAll('[data-service]').forEach((element) => {
   element.addEventListener('click', () => {
     const service = element.dataset.service
+    openFormPanel()
     if (serviceInterest) serviceInterest.value = service
     if (statusBox) {
       statusBox.textContent = `Interested in: ${service}. Send the audit request and we will start there.`
