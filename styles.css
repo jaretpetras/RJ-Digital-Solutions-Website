@@ -385,8 +385,8 @@ h3 {
 .plain-list article,
 .process li {
   display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 1rem;
+  grid-template-columns: 48px 1fr;
+  gap: 1.05rem;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
   padding-top: 1.4rem;
 }
@@ -394,15 +394,35 @@ h3 {
 .plain-list span,
 .process span {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 48px;
+  height: 48px;
   place-items: center;
   border: 1px solid var(--cyan-line);
-  border-radius: 999px;
+  border-radius: 10px;
   background: var(--cyan-soft);
   color: var(--cyan);
-  font-size: 0.78rem;
-  font-weight: 950;
+}
+
+.plain-list svg,
+.process svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.plain-list h3,
+.process strong {
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+}
+
+.process strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--off-white);
 }
 
 .feature-process {
