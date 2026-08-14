@@ -17,8 +17,41 @@ const year = document.querySelector('[data-year]')
 const form = document.querySelector('[data-audit-form]')
 const statusBox = document.querySelector('[data-form-status]')
 const submitButton = document.querySelector('[data-submit-button]')
+const trackedElements = [...document.querySelectorAll('[data-track]')]
+
+function getAttribution() {
+  const params = new URLSearchParams(window.location.search)
+  return {
+    source: params.get('utm_source') || document.referrer || 'direct',
+    campaign: params.get('utm_campaign') || '',
+    content: params.get('utm_content') || '',
+    medium: params.get('utm_medium') || '',
+  }
+}
+
+function trackEvent(name, detail = {}) {
+  const event = {
+    name,
+    detail,
+    attribution: getAttribution(),
+    path: window.location.pathname,
+    capturedAt: new Date().toISOString(),
+  }
+  const events = JSON.parse(localStorage.getItem('rjAutomationEvents') || '[]')
+  events.push(event)
+  localStorage.setItem('rjAutomationEvents', JSON.stringify(events.slice(-100)))
+  window.dispatchEvent(new CustomEvent('rj-analytics-event', { detail: event }))
+}
 
 if (year) year.textContent = String(new Date().getFullYear())
+
+trackEvent('landing_page_view')
+
+trackedElements.forEach((element) => {
+  element.addEventListener('click', () => {
+    trackEvent(element.dataset.track, { label: element.dataset.trackLabel || element.textContent.trim() })
+  })
+})
 
 function updateHeader() {
   header?.classList.toggle('scrolled', window.scrollY > 12)
@@ -107,16 +140,16 @@ function validateField(field) {
 
 function buildEmailBody(payload) {
   return [
-    'Free Lead Audit Request',
+    'Free AI Automation Audit Request',
     '',
     `Full name: ${payload.fullName}`,
     `Business name: ${payload.businessName}`,
     `Business website: ${payload.businessWebsite}`,
     `Email address: ${payload.emailAddress}`,
     `Phone number: ${payload.phoneNumber}`,
-    `Type of business: ${payload.businessType}`,
+    `Approx. monthly lead volume: ${payload.leadVolume}`,
     '',
-    'Biggest lead-generation challenge:',
+    'Biggest bottleneck:',
     payload.leadChallenge,
   ].join('\n')
 }
@@ -124,6 +157,10 @@ function buildEmailBody(payload) {
 form?.addEventListener('input', (event) => {
   const field = event.target
   if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+    if (!form.dataset.started) {
+      form.dataset.started = 'true'
+      trackEvent('form_started')
+    }
     validateField(field)
   }
 })
@@ -154,9 +191,10 @@ form?.addEventListener('submit', async (event) => {
 
   try {
     await submitLeadAuditRequest(payload)
-    const subject = encodeURIComponent(`Free Lead Audit Request - ${payload.businessName}`)
+    const subject = encodeURIComponent(`Free AI Automation Audit Request - ${payload.businessName}`)
     const body = encodeURIComponent(buildEmailBody(payload))
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+    trackEvent('form_completed', { businessName: payload.businessName })
     statusBox.textContent = 'Your request is saved in this browser. A prepared email is opening so you can send it now.'
     statusBox.className = 'form-status success'
     window.location.href = mailto
@@ -166,6 +204,6 @@ form?.addEventListener('submit', async (event) => {
     statusBox.className = 'form-status error'
   } finally {
     submitButton.disabled = false
-    submitButton.textContent = 'Request My Free Audit'
+    submitButton.textContent = 'Book My Free AI Automation Audit'
   }
 })

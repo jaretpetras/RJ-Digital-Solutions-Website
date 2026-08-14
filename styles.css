@@ -541,6 +541,14 @@ h3 {
   margin: 0 auto clamp(2rem, 5vw, 4rem);
 }
 
+.showcase-heading p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1.03rem, 1.45vw, 1.18rem);
+  line-height: 1.65;
+}
+
 .showcase-frame {
   position: relative;
   min-height: clamp(420px, 44vw, 600px);
@@ -690,6 +698,111 @@ h3 {
 
 .stage-sequence .active {
   color: var(--cyan);
+}
+
+.compare-section,
+.objection-section,
+.proof-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: start;
+}
+
+.comparison-grid,
+.objection-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.comparison-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.comparison-grid article,
+.objection-list article,
+.proof-placeholder {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(17, 24, 33, 0.48);
+  padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+.comparison-grid .with-system {
+  border-color: var(--cyan-line);
+  background: linear-gradient(180deg, rgba(0, 215, 232, 0.08), rgba(17, 24, 33, 0.48));
+}
+
+.comparison-label {
+  margin-bottom: 1rem;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.comparison-grid ol {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comparison-grid li {
+  position: relative;
+  color: var(--soft-text);
+  font-weight: 700;
+  padding-left: 1.35rem;
+}
+
+.comparison-grid li::before {
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--line-strong);
+  content: "";
+}
+
+.comparison-grid .with-system li::before {
+  background: var(--cyan);
+}
+
+.objection-list article {
+  border-width: 1px 0 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 1.25rem 0;
+}
+
+.objection-list article:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.objection-list p,
+.proof-placeholder p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.proof-section {
+  align-items: center;
+}
+
+.proof-placeholder {
+  border-style: dashed;
+}
+
+.proof-placeholder strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: var(--soft-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
 }
 
 .solutions {
@@ -1191,6 +1304,9 @@ input::placeholder {
 
 @media (max-width: 900px) {
   .offer-section,
+  .compare-section,
+  .objection-section,
+  .proof-section,
   .timeline-section,
   .why-section,
   .form-section,
@@ -1230,6 +1346,10 @@ input::placeholder {
 
   .stage-sequence li + li::before {
     width: 1.6rem;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
   }
 }
 
