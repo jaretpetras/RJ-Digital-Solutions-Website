@@ -350,30 +350,6 @@ h3 {
   margin-top: 2rem;
 }
 
-.outcome-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 1.1rem;
-}
-
-.outcome-row span {
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.025);
-  color: var(--soft-text);
-  font-size: 0.86rem;
-  font-weight: 750;
-  padding: 0.5rem 0.72rem;
-}
-
-.microcopy {
-  margin: 1rem 0 0;
-  color: var(--dim);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-}
-
 .hero-visual {
   position: relative;
   min-height: clamp(430px, 43vw, 590px);
