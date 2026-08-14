@@ -558,6 +558,10 @@ h3 {
   top: 110px;
 }
 
+.offer-section .section-kicker {
+  align-self: center;
+}
+
 .section-kicker .eyebrow,
 .service-menu-heading .eyebrow {
   margin-bottom: 1.2rem;
