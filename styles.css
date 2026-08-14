@@ -828,14 +828,16 @@ h3 {
   line-height: 1.65;
 }
 
-.service-grid {
+.service-grid,
+.category-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
 
-.service-grid article {
+.service-grid article,
+.category-grid article {
   display: grid;
   min-height: 245px;
   align-content: start;
@@ -846,27 +848,32 @@ h3 {
   transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
-.service-grid article:hover {
+.service-grid article:hover,
+.category-grid article:hover {
   border-color: var(--line-strong);
   background: rgba(17, 24, 33, 0.58);
   transform: translateY(-2px);
 }
 
-.service-grid .featured-service {
+.service-grid .featured-service,
+.category-grid .featured-service {
   border-color: var(--cyan-line);
   background: linear-gradient(180deg, rgba(0, 215, 232, 0.1), rgba(17, 24, 33, 0.42));
 }
 
-.service-grid h3 {
+.service-grid h3,
+.category-grid h3 {
   font-size: clamp(1.1rem, 1.6vw, 1.42rem);
 }
 
-.service-grid p {
+.service-grid p,
+.category-grid p {
   margin-bottom: 1.4rem;
   color: var(--muted);
 }
 
-.service-grid a {
+.service-grid a,
+.category-grid a {
   align-self: end;
   justify-self: start;
   color: var(--cyan);
@@ -878,8 +885,46 @@ h3 {
   text-transform: uppercase;
 }
 
-.service-grid a:hover {
+.service-grid a:hover,
+.category-grid a:hover {
   color: var(--cyan-hover);
+}
+
+.category-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.category-grid article {
+  min-height: 300px;
+}
+
+.category-label {
+  margin-bottom: 0.8rem !important;
+  color: var(--cyan) !important;
+  font-family: var(--font-mono);
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.3 !important;
+  text-transform: uppercase;
+}
+
+.category-grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.category-grid li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--soft-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.42rem 0.62rem;
 }
 
 .solution-row {
@@ -1425,7 +1470,8 @@ input::placeholder {
     grid-template-columns: 1fr;
   }
 
-  .service-grid {
+  .service-grid,
+  .category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1569,11 +1615,13 @@ input::placeholder {
     grid-template-columns: 1fr;
   }
 
-  .service-grid {
+  .service-grid,
+  .category-grid {
     grid-template-columns: 1fr;
   }
 
-  .service-grid article {
+  .service-grid article,
+  .category-grid article {
     min-height: auto;
   }
 
