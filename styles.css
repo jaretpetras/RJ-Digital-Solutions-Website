@@ -350,6 +350,23 @@ h3 {
   margin-top: 2rem;
 }
 
+.outcome-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+}
+
+.outcome-row span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--soft-text);
+  font-size: 0.86rem;
+  font-weight: 750;
+  padding: 0.5rem 0.72rem;
+}
+
 .microcopy {
   margin: 1rem 0 0;
   color: var(--dim);
@@ -517,6 +534,29 @@ h3 {
 .offer-list article:hover {
   border-top-color: var(--line-strong);
   transform: translateX(4px);
+}
+
+.mini-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--cyan-line);
+  border-radius: 10px;
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  margin-bottom: 0.8rem;
+}
+
+.mini-icon svg,
+.category-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .offer-list span,
@@ -896,6 +936,23 @@ h3 {
 
 .category-grid article {
   min-height: 300px;
+}
+
+.category-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--cyan);
+  margin-bottom: 1.1rem;
+}
+
+.category-grid .featured-service .category-icon {
+  border-color: var(--cyan-line);
+  background: var(--cyan-soft);
 }
 
 .category-label {
