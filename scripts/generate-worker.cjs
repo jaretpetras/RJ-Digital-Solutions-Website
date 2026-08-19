@@ -10,9 +10,9 @@ const js = read("dist/assets/index-BLWHJ9y2.js").toString("utf8");
 const hero =
   "data:image/png;base64," +
   read("dist/assets/hero-business-system-BkP6gHng.png").toString("base64");
+const logoSvg = read("dist/assets/rj-logo-rounded-square.svg").toString("utf8");
 const logo =
-  "data:image/png;base64," +
-  read("dist/assets/rj-digital-solutions-logo-transparent-CNzm6FDg.png").toString("base64");
+  "data:image/svg+xml;base64," + Buffer.from(logoSvg, "utf8").toString("base64");
 const faviconSvg = read("dist/assets/favicon-BABP3Hd6.svg").toString("utf8");
 const favicon =
   "data:image/svg+xml;base64," + Buffer.from(faviconSvg, "utf8").toString("base64");
@@ -35,7 +35,7 @@ html = html
     `<style>\n${css}\n</style>`,
   )
   .replaceAll(/\/assets\/hero-business-system-[A-Za-z0-9]+\.png/g, hero)
-  .replaceAll(/\/assets\/rj-digital-solutions-logo-transparent-[A-Za-z0-9]+\.png/g, logo);
+  .replaceAll(/\/assets\/rj-logo-rounded-square\.svg/g, logo);
 
 const worker = `const HTML = ${JSON.stringify(html)};
 const FAVICON = ${JSON.stringify(faviconSvg)};
