@@ -8,4 +8,4 @@ Open `index.html` in a browser, or serve the folder with any static server.
 
 ## Contact links
 
-The current contact email placeholder is `hello@rjdigitalsolutions.com`. Update `CONTACT_EMAIL` in `script.js` when the business uses a real audit inbox or backend endpoint.
+The current contact email placeholder is `hello@rjdigitalsolutions.com`. Update `CONTACT_EMAIL` in `script.js` when the business uses a real consultation inbox or backend endpoint.

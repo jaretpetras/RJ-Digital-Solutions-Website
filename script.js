@@ -88,7 +88,7 @@ document.querySelectorAll('[data-service]').forEach((element) => {
     openFormPanel()
     if (serviceInterest) serviceInterest.value = service
     if (statusBox) {
-      statusBox.textContent = `Interested in: ${service}. Send the audit request and we will start there.`
+      statusBox.textContent = `Interested in: ${service}. Send the consultation request and we will start there.`
       statusBox.className = 'form-status'
     }
     trackEvent('service_interest_selected', { service })
@@ -182,7 +182,7 @@ function validateField(field) {
 
 function buildEmailBody(payload) {
   return [
-    'Free Lead Audit Request',
+    'Free Consultation Request',
     '',
     `Full name: ${payload.fullName}`,
     `Business name: ${payload.businessName}`,
@@ -218,7 +218,7 @@ form?.addEventListener('submit', async (event) => {
   const validationResults = fields.map(validateField)
   const valid = validationResults.every(Boolean)
   if (!valid) {
-    statusBox.textContent = 'Please fix the highlighted fields before requesting your audit.'
+    statusBox.textContent = 'Please fix the highlighted fields before requesting your consultation.'
     statusBox.className = 'form-status error'
     fields.find((field) => field.getAttribute('aria-invalid') === 'true')?.focus()
     return
@@ -234,7 +234,7 @@ form?.addEventListener('submit', async (event) => {
 
   try {
     await submitLeadAuditRequest(payload)
-    const subject = encodeURIComponent(`Free Lead Audit Request - ${payload.businessName}`)
+    const subject = encodeURIComponent(`Free Consultation Request - ${payload.businessName}`)
     const body = encodeURIComponent(buildEmailBody(payload))
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
     trackEvent('form_completed', { businessName: payload.businessName })
@@ -247,6 +247,6 @@ form?.addEventListener('submit', async (event) => {
     statusBox.className = 'form-status error'
   } finally {
     submitButton.disabled = false
-    submitButton.textContent = 'Request My Free Lead Audit'
+    submitButton.textContent = 'Request My Free Consultation'
   }
 })
