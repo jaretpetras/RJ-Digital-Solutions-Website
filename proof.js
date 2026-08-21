@@ -88,6 +88,13 @@ const journeyStages = [
         image: 'assets/flagship-rj-digital-systems.png',
         href: projectLinks.game,
       },
+      {
+        name: 'AI Chatbot',
+        subtitle: 'A site assistant that answers questions and captures qualified leads.',
+        project: 'Lead qualification assistant',
+        image: 'assets/flagship-rj-digital-systems.png',
+        href: projectLinks.consult,
+      },
     ],
   },
   {
@@ -110,6 +117,13 @@ const journeyStages = [
         project: 'Game On Demand booking flow',
         image: 'assets/flagship-game-on-demand.png',
         href: projectLinks.game,
+      },
+      {
+        name: 'Workflow Automations',
+        subtitle: 'Automated handoffs, reminders, tasks, and status updates.',
+        project: 'Operations automation system',
+        image: 'assets/flagship-rj-digital-systems.png',
+        href: projectLinks.consult,
       },
     ],
   },
