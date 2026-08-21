@@ -1,118 +1,187 @@
+const projectLinks = {
+  rj: 'https://github.com/jaretpetras/RJ-Digital-Solutions-Website',
+  game: 'https://github.com/J-RLLC/GameOnDemand',
+  neuro: 'https://github.com/J-RLLC/GameOnDemand',
+  consult: 'index.html#lead-audit',
+}
+
 const journeyStages = [
   {
     id: 'attention',
     label: 'Get Attention',
-    summary: 'Create useful demand and send it somewhere intentional.',
-    services: ['Short Form Content System', 'Automated Outreach', 'Lead Magnets', 'QR Campaigns'],
-    problems: ['People do not know the business exists', 'Content is inconsistent', 'Promotions do not connect to a next step'],
-    outcome: 'More qualified people discover the business and enter a clear path instead of scattering across disconnected channels.',
+    summary: 'Create useful demand and point it somewhere intentional.',
     visual: 'signal',
+    tools: [
+      {
+        name: 'Short Form Content System',
+        project: 'Content workflow system',
+        image: 'assets/lead-system-hero.png',
+        href: projectLinks.consult,
+      },
+      {
+        name: 'Automated Outreach',
+        project: 'Lead workflow system',
+        image: 'assets/hero-business-system.png',
+        href: projectLinks.consult,
+      },
+      {
+        name: 'Lead Magnets',
+        project: 'Lead capture funnel',
+        image: 'assets/lead-system-hero.png',
+        href: projectLinks.rj,
+      },
+      {
+        name: 'QR Campaigns',
+        project: 'Campaign-to-form flow',
+        image: 'assets/rj-digital-solutions-logo-transparent.png',
+        href: projectLinks.consult,
+      },
+    ],
   },
   {
     id: 'trust',
     label: 'Build Trust',
-    summary: 'Make the business look credible before a prospect ever reaches out.',
-    services: ['Conversion Website / Landing Page', 'Proof-of-Work Portfolios'],
-    problems: ['The offer is hard to understand', 'The website does not make the business feel current', 'There is no simple proof that the business can deliver'],
-    outcome: 'Visitors quickly understand what the business does, why it matters, and why they should take the next step.',
+    summary: 'Make the business feel credible before the prospect reaches out.',
     visual: 'trust',
+    tools: [
+      {
+        name: 'Conversion Website / Landing Page',
+        project: 'RJ Digital Solutions Website',
+        image: 'assets/hero-business-system.png',
+        href: projectLinks.rj,
+      },
+      {
+        name: 'Proof-of-Work Portfolios',
+        project: 'Interactive proof-of-work page',
+        image: 'assets/lead-system-hero.png',
+        href: 'what-we-build.html',
+      },
+    ],
   },
   {
     id: 'capture',
     label: 'Capture Leads',
-    summary: 'Turn interest into organized contact information and useful context.',
-    services: ['Lead Capture System', 'CRM Setup'],
-    problems: ['Leads disappear in DMs, calls, and inboxes', 'There is no central place to track prospects', 'Follow-up starts without enough information'],
-    outcome: 'Every real opportunity enters one system with the right details attached.',
+    summary: 'Turn interest into organized contact information and context.',
     visual: 'capture',
+    tools: [
+      {
+        name: 'Lead Capture System',
+        project: 'RJ consultation intake flow',
+        image: 'assets/lead-system-hero.png',
+        href: projectLinks.rj,
+      },
+      {
+        name: 'CRM Setup',
+        project: 'Pipeline and booking infrastructure',
+        image: 'assets/hero-business-system.png',
+        href: projectLinks.game,
+      },
+    ],
   },
   {
     id: 'convert',
     label: 'Convert',
     summary: 'Move interested prospects toward booking, buying, or starting.',
-    services: ['Automated Follow-Up System', 'Booking System'],
-    problems: ['Leads go cold', 'Response times are slow', 'Scheduling creates friction'],
-    outcome: 'Prospects get timely follow-up, fewer steps, and a cleaner path to becoming customers.',
     visual: 'convert',
+    tools: [
+      {
+        name: 'Automated Follow-Up System',
+        project: 'Follow-up automation structure',
+        image: 'assets/hero-business-system.png',
+        href: projectLinks.consult,
+      },
+      {
+        name: 'Booking System',
+        project: 'Game On Demand booking flow',
+        image: 'assets/lead-system-hero.png',
+        href: projectLinks.game,
+      },
+    ],
   },
   {
     id: 'deliver',
     label: 'Deliver',
-    summary: 'Build the software layer behind the actual customer experience.',
-    services: ['Custom Web Apps', 'Custom Mobile Apps'],
-    problems: ['The business has outgrown generic tools', 'Customers need a better digital experience', 'Internal work depends on too many manual steps'],
-    outcome: "Sometimes the solution isn't another marketing campaign. It's better software.",
+    summary: 'Build the software layer behind the customer experience.',
     visual: 'deliver',
     featured: true,
+    tools: [
+      {
+        name: 'Custom Web Apps',
+        project: 'Neuro Football / Game On Demand',
+        image: 'assets/hero-business-system.png',
+        href: projectLinks.neuro,
+      },
+      {
+        name: 'Custom Mobile Apps',
+        project: 'Mobile app delivery systems',
+        image: 'assets/rj-digital-solutions-logo-transparent.png',
+        href: projectLinks.consult,
+      },
+    ],
   },
 ]
 
 const flow = document.querySelector('[data-journey-flow]')
 const detail = document.querySelector('[data-stage-detail]')
-let activeStageId = journeyStages[0].id
 
-function renderDetail(stage) {
-  detail.innerHTML = `
-    <div class="stage-detail-copy">
-      <span class="stage-number">${String(journeyStages.indexOf(stage) + 1).padStart(2, '0')}</span>
-      <h3>${stage.label}</h3>
-      <p>${stage.summary}</p>
-      <strong>${stage.outcome}</strong>
-    </div>
-    <div class="stage-service-panel">
-      <div>
-        <h4>What RJ Digital builds here</h4>
-        <div class="minimal-service-list">
-          ${stage.services.map((service) => `<a href="index.html#lead-audit" data-solution-interest="${service}">${service}<span>Start here</span></a>`).join('')}
-        </div>
-      </div>
-      <div>
-        <h4>What this fixes</h4>
-        <ul class="minimal-problem-list">${stage.problems.map((problem) => `<li>${problem}</li>`).join('')}</ul>
-      </div>
-    </div>
-  `
+function allTools() {
+  return journeyStages.flatMap((stage) => stage.tools.map((tool) => ({ ...tool, stage: stage.label })))
 }
 
-function setActiveStage(stageId, { scroll = false } = {}) {
-  activeStageId = stageId
-  const stage = journeyStages.find((item) => item.id === stageId) || journeyStages[0]
-  document.querySelectorAll('[data-stage-id]').forEach((button) => {
-    const active = button.dataset.stageId === stageId
-    button.classList.toggle('active', active)
-    button.setAttribute('aria-pressed', String(active))
-  })
-  renderDetail(stage)
-  if (scroll) detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+function renderPreview(tool) {
+  detail.innerHTML = `
+    <a class="minimal-project-preview" href="${tool.href}" ${tool.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''} data-project-interest="${tool.name}">
+      <img src="${tool.image}" alt="">
+      <span>
+        <small>${tool.stage}</small>
+        <strong>${tool.project}</strong>
+        <em>View project -></em>
+      </span>
+    </a>
+  `
 }
 
 function renderFlow() {
   flow.innerHTML = journeyStages.map((stage, index) => `
-    <button class="journey-stage ${stage.featured ? 'featured' : ''}" type="button" data-stage-id="${stage.id}" aria-pressed="false">
-      <span class="stage-index">${String(index + 1).padStart(2, '0')}</span>
-      <span class="stage-orbit ${stage.visual}" aria-hidden="true"></span>
-      <strong>${stage.label}</strong>
-      <small>${stage.services.join(' / ')}</small>
-      <span class="stage-tooltip" role="presentation">
-        <b>What we can build</b>
-        ${stage.services.map((item) => `<span>${item}</span>`).join('')}
-        <em>Explore -></em>
-      </span>
-    </button>
+    <section class="minimal-stage ${stage.featured ? 'featured' : ''}" data-stage-id="${stage.id}">
+      <div class="minimal-stage-marker">
+        <span class="stage-index">${String(index + 1).padStart(2, '0')}</span>
+        <span class="stage-orbit ${stage.visual}" aria-hidden="true"></span>
+      </div>
+      <div class="minimal-stage-content">
+        <div class="minimal-stage-heading">
+          <h3>${stage.label}</h3>
+          <p>${stage.summary}</p>
+        </div>
+        <div class="minimal-tool-list">
+          ${stage.tools.map((tool) => `
+            <a href="${tool.href}" ${tool.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''} data-tool-name="${tool.name}">
+              ${tool.name}
+            </a>
+          `).join('')}
+        </div>
+      </div>
+    </section>
   `).join('')
 
-  document.querySelectorAll('[data-stage-id]').forEach((button) => {
-    button.addEventListener('click', () => setActiveStage(button.dataset.stageId, { scroll: true }))
-    button.addEventListener('mouseenter', () => setActiveStage(button.dataset.stageId))
-    button.addEventListener('focus', () => setActiveStage(button.dataset.stageId))
+  const tools = allTools()
+  const toolLinks = [...document.querySelectorAll('[data-tool-name]')]
+
+  toolLinks.forEach((link) => {
+    const tool = tools.find((item) => item.name === link.dataset.toolName)
+    if (!tool) return
+    link.addEventListener('mouseenter', () => renderPreview(tool))
+    link.addEventListener('focus', () => renderPreview(tool))
+    link.addEventListener('click', () => localStorage.setItem('rjSelectedSolution', tool.name))
   })
-  setActiveStage(activeStageId)
+
+  renderPreview(tools[0])
 }
 
 document.addEventListener('click', (event) => {
-  const interest = event.target.closest('[data-solution-interest]')
-  if (!interest) return
-  localStorage.setItem('rjSelectedSolution', interest.dataset.solutionInterest)
+  const project = event.target.closest('[data-project-interest]')
+  if (!project) return
+  localStorage.setItem('rjSelectedSolution', project.dataset.projectInterest)
 })
 
 if (flow && detail) renderFlow()

@@ -2332,6 +2332,205 @@ input::placeholder {
   justify-content: center;
 }
 
+.minimal-stage,
+.minimal-stage-content,
+.minimal-stage-heading,
+.minimal-tool-list {
+  min-width: 0;
+}
+
+.proof-page .journey-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.55fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.proof-page .journey-flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+.proof-page .journey-flow::before,
+.proof-page .journey-flow::after {
+  display: none;
+}
+
+.minimal-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 1.75rem);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(1.2rem, 3vw, 1.9rem) 0;
+}
+
+.minimal-stage:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.minimal-stage::before {
+  position: absolute;
+  left: 42px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(transparent, var(--cyan-line), transparent);
+  content: "";
+}
+
+.minimal-stage-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.minimal-stage-marker .stage-orbit {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 215, 232, 0.12), transparent 44%),
+    var(--bg);
+}
+
+.minimal-stage-content {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.48fr) minmax(0, 0.52fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.minimal-stage-heading h3 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+}
+
+.minimal-stage-heading p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.minimal-tool-list {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.minimal-tool-list a {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--soft-text);
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 0.56rem 0.68rem;
+  text-decoration: none;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.minimal-tool-list a:hover,
+.minimal-tool-list a:focus-visible {
+  border-color: var(--cyan-line);
+  background: rgba(0, 215, 232, 0.055);
+  color: var(--text);
+  transform: translateX(3px);
+}
+
+.proof-page .stage-detail-panel {
+  position: sticky;
+  top: 96px;
+  display: block;
+  align-self: start;
+  border: 0;
+  padding: 0;
+}
+
+.minimal-project-preview {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  min-height: clamp(360px, 38vw, 520px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.minimal-project-preview::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, transparent 30%, rgba(5, 7, 11, 0.9) 100%),
+    linear-gradient(90deg, rgba(5, 7, 11, 0.16), transparent 54%);
+  content: "";
+}
+
+.minimal-project-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.05);
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.minimal-project-preview:hover img,
+.minimal-project-preview:focus-visible img {
+  filter: saturate(1) contrast(1.08);
+  transform: scale(1.025);
+}
+
+.minimal-project-preview span {
+  position: absolute;
+  left: clamp(1rem, 3vw, 1.5rem);
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 2;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.minimal-project-preview small {
+  color: var(--cyan);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.minimal-project-preview strong {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 2.5vw, 2.3rem);
+  line-height: 1.1;
+}
+
+.minimal-project-preview em {
+  color: var(--soft-text);
+  font-size: 0.92rem;
+  font-style: normal;
+  font-weight: 700;
+}
+
 .reveal {
   opacity: 1;
   transform: translateY(0);
@@ -2480,6 +2679,22 @@ input::placeholder {
   .proof-card-grid,
   .solution-picker {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .proof-page .journey-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-page .stage-detail-panel {
+    position: static;
+  }
+
+  .minimal-stage-content {
+    grid-template-columns: 1fr;
+  }
+
+  .minimal-project-preview {
+    min-height: 320px;
   }
 }
 
@@ -2806,6 +3021,31 @@ input::placeholder {
   .proof-card-grid,
   .solution-picker {
     grid-template-columns: 1fr;
+  }
+
+  .minimal-stage {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 0.9rem;
+  }
+
+  .minimal-stage::before {
+    left: 31px;
+  }
+
+  .minimal-stage-marker .stage-orbit {
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+  }
+
+  .minimal-tool-list a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .minimal-tool-list a:hover,
+  .minimal-tool-list a:focus-visible {
+    transform: none;
   }
 }
 
