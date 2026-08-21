@@ -35,6 +35,21 @@ const assets = {
     body: readBase64("assets/lead-system-hero.png"),
     encoding: "base64",
   },
+  "/assets/flagship-game-on-demand.png": {
+    contentType: "image/png",
+    body: readBase64("assets/flagship-game-on-demand.png"),
+    encoding: "base64",
+  },
+  "/assets/flagship-neuro-football.png": {
+    contentType: "image/png",
+    body: readBase64("assets/flagship-neuro-football.png"),
+    encoding: "base64",
+  },
+  "/assets/flagship-rj-digital-systems.png": {
+    contentType: "image/png",
+    body: readBase64("assets/flagship-rj-digital-systems.png"),
+    encoding: "base64",
+  },
 };
 
 function prepareHtml(filePath, { includeProof = false } = {}) {
