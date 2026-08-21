@@ -40,6 +40,11 @@ const assets = {
     body: readBase64("assets/flagship-game-on-demand.png"),
     encoding: "base64",
   },
+  "/assets/game-on-demand-logo.png": {
+    contentType: "image/png",
+    body: readBase64("assets/game-on-demand-logo.png"),
+    encoding: "base64",
+  },
   "/assets/flagship-neuro-football.png": {
     contentType: "image/png",
     body: readBase64("assets/flagship-neuro-football.png"),
