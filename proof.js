@@ -117,6 +117,12 @@ const journeyStages = [
         image: 'assets/rj-digital-solutions-logo-transparent.png',
         href: projectLinks.consult,
       },
+      {
+        name: 'Online Schools',
+        project: 'Course and membership platforms',
+        image: 'assets/lead-system-hero.png',
+        href: projectLinks.neuro,
+      },
     ],
   },
 ]

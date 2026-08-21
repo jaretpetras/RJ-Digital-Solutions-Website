@@ -1723,14 +1723,14 @@ input::placeholder {
   grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
   gap: clamp(2rem, 6vw, 5rem);
   align-items: end;
-  min-height: 34vh;
-  padding: clamp(4.5rem, 9vw, 6.5rem) 0 clamp(1.5rem, 4vw, 2.8rem);
+  min-height: auto;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(1.1rem, 3vw, 1.8rem);
 }
 
 .proof-hero h1 {
   max-width: 960px;
   margin-bottom: 1rem;
-  font-size: clamp(2.8rem, 6.3vw, 5.6rem);
+  font-size: clamp(2.45rem, 5.2vw, 4.7rem);
 }
 
 .proof-hero .hero-lede {
@@ -1740,7 +1740,7 @@ input::placeholder {
 .journey-section,
 .need-section {
   border-bottom: 1px solid var(--line);
-  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+  padding: clamp(1.8rem, 4vw, 3.2rem) 0;
 }
 
 .journey-heading {
@@ -2324,8 +2324,14 @@ input::placeholder {
 }
 
 .proof-final {
-  margin-top: clamp(3.5rem, 7vw, 6rem);
-  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+  width: min(var(--max), calc(100% - 2rem));
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  border-width: 1px 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
 .proof-final .hero-actions {
@@ -2341,8 +2347,8 @@ input::placeholder {
 
 .proof-page .journey-shell {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.55fr);
-  gap: clamp(1rem, 3vw, 2rem);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.44fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -2365,10 +2371,10 @@ input::placeholder {
 .minimal-stage {
   position: relative;
   display: grid;
-  grid-template-columns: 86px minmax(0, 1fr);
-  gap: clamp(1rem, 3vw, 1.75rem);
-  border-bottom: 1px solid var(--line);
-  padding: clamp(1.2rem, 3vw, 1.9rem) 0;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: clamp(1rem, 3vw, 1.6rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  padding: clamp(1.45rem, 3.8vw, 2.45rem) 0;
 }
 
 .minimal-stage:first-child {
@@ -2377,11 +2383,11 @@ input::placeholder {
 
 .minimal-stage::before {
   position: absolute;
-  left: 42px;
+  left: 26px;
   top: 0;
   bottom: 0;
   width: 1px;
-  background: linear-gradient(transparent, var(--cyan-line), transparent);
+  background: rgba(255, 255, 255, 0.12);
   content: "";
 }
 
@@ -2390,66 +2396,88 @@ input::placeholder {
   z-index: 1;
   display: grid;
   justify-items: center;
-  gap: 0.7rem;
+  gap: 0.55rem;
   align-content: start;
 }
 
 .minimal-stage-marker .stage-orbit {
-  width: 70px;
-  height: 70px;
-  border-radius: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   background:
-    radial-gradient(circle at 50% 50%, rgba(0, 215, 232, 0.12), transparent 44%),
+    radial-gradient(circle at 50% 50%, rgba(0, 215, 232, 0.08), transparent 48%),
     var(--bg);
+  box-shadow: none;
 }
 
 .minimal-stage-content {
   display: grid;
-  grid-template-columns: minmax(180px, 0.48fr) minmax(0, 0.52fr);
-  gap: clamp(1rem, 3vw, 2rem);
-  align-items: start;
+  grid-template-columns: minmax(190px, 0.42fr) minmax(0, 0.58fr);
+  gap: clamp(1.4rem, 4vw, 3.2rem);
+  align-items: baseline;
 }
 
 .minimal-stage-heading h3 {
-  margin: 0 0 0.45rem;
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  margin: 0 0 0.38rem;
+  font-size: clamp(1.22rem, 1.7vw, 1.72rem);
+  letter-spacing: -0.018em;
 }
 
 .minimal-stage-heading p {
   max-width: 360px;
   margin: 0;
   color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.6;
+  font-size: 0.91rem;
+  line-height: 1.62;
 }
 
 .minimal-tool-list {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.15rem;
 }
 
 .minimal-tool-list a {
   display: flex;
-  min-height: 44px;
+  min-height: 42px;
   align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   border: 1px solid transparent;
-  border-radius: 9px;
+  border-radius: 0;
   color: var(--soft-text);
   font-family: var(--font-display);
-  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  font-size: clamp(1.02rem, 1.35vw, 1.22rem);
   font-weight: 700;
   line-height: 1.2;
-  padding: 0.56rem 0.68rem;
+  padding: 0.46rem 0;
   text-decoration: none;
-  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, transform 160ms ease;
+}
+
+.minimal-tool-list a::after {
+  color: var(--dim);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 160ms ease, transform 160ms ease, color 160ms ease;
+  content: "Preview";
 }
 
 .minimal-tool-list a:hover,
 .minimal-tool-list a:focus-visible {
-  border-color: var(--cyan-line);
-  background: rgba(0, 215, 232, 0.055);
+  border-color: transparent;
+  background: transparent;
   color: var(--text);
-  transform: translateX(3px);
+  transform: translateX(5px);
+}
+
+.minimal-tool-list a:hover::after,
+.minimal-tool-list a:focus-visible::after {
+  color: var(--cyan);
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .proof-page .stage-detail-panel {
@@ -2465,12 +2493,13 @@ input::placeholder {
   position: relative;
   display: block;
   overflow: hidden;
-  min-height: clamp(360px, 38vw, 520px);
-  border: 1px solid var(--line);
-  border-radius: 14px;
+  min-height: clamp(330px, 34vw, 470px);
+  border: 1px solid rgba(255, 255, 255, 0.115);
+  border-radius: 10px;
   background: var(--surface);
   text-decoration: none;
   isolation: isolate;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
 }
 
 .minimal-project-preview::after {
@@ -2478,8 +2507,8 @@ input::placeholder {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, transparent 30%, rgba(5, 7, 11, 0.9) 100%),
-    linear-gradient(90deg, rgba(5, 7, 11, 0.16), transparent 54%);
+    linear-gradient(180deg, transparent 38%, rgba(5, 7, 11, 0.92) 100%),
+    linear-gradient(90deg, rgba(5, 7, 11, 0.1), transparent 54%);
   content: "";
 }
 
@@ -2489,7 +2518,7 @@ input::placeholder {
   height: 100%;
   min-height: inherit;
   object-fit: cover;
-  filter: saturate(0.88) contrast(1.05);
+  filter: saturate(0.82) contrast(1.04);
   transition: transform 220ms ease, filter 220ms ease;
 }
 
@@ -2506,7 +2535,7 @@ input::placeholder {
   bottom: clamp(1rem, 3vw, 1.5rem);
   z-index: 2;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.38rem;
 }
 
 .minimal-project-preview small {
@@ -2520,7 +2549,7 @@ input::placeholder {
 .minimal-project-preview strong {
   color: var(--text);
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 2.5vw, 2.3rem);
+  font-size: clamp(1.32rem, 2.1vw, 1.9rem);
   line-height: 1.1;
 }
 
