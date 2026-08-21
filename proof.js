@@ -11,7 +11,7 @@ const journeyStages = [
     id: 'attention',
     label: 'Get Attention',
     summary: 'Create useful demand and point it somewhere intentional.',
-    visual: 'signal',
+    visual: 'eye',
     image: 'assets/flagship-rj-digital-systems.png',
     tools: [
       {
@@ -48,7 +48,7 @@ const journeyStages = [
     id: 'trust',
     label: 'Build Trust',
     summary: 'Make the business feel credible before the prospect reaches out.',
-    visual: 'trust',
+    visual: 'handshake',
     image: 'assets/flagship-rj-digital-systems.png',
     tools: [
       {
@@ -71,7 +71,7 @@ const journeyStages = [
     id: 'capture',
     label: 'Capture Leads',
     summary: 'Turn interest into organized contact information and context.',
-    visual: 'capture',
+    visual: 'download',
     image: 'assets/flagship-rj-digital-systems.png',
     tools: [
       {
@@ -94,7 +94,7 @@ const journeyStages = [
     id: 'convert',
     label: 'Convert',
     summary: 'Move interested prospects toward booking, buying, or starting.',
-    visual: 'convert',
+    visual: 'arrow',
     image: 'assets/flagship-game-on-demand.png',
     tools: [
       {
@@ -117,7 +117,7 @@ const journeyStages = [
     id: 'deliver',
     label: 'Deliver',
     summary: 'Build the software layer behind the customer experience.',
-    visual: 'deliver',
+    visual: 'devices',
     image: 'assets/flagship-neuro-football.png',
     featured: true,
     tools: [
@@ -150,6 +150,47 @@ const flow = document.querySelector('[data-journey-flow]')
 const detail = document.querySelector('[data-stage-detail]')
 let activeStageId = null
 
+const stageIcons = {
+  eye: `
+    <svg viewBox="0 0 48 48" role="img" aria-label="Visibility">
+      <path d="M5.5 24s6.8-11 18.5-11 18.5 11 18.5 11-6.8 11-18.5 11S5.5 24 5.5 24Z"></path>
+      <circle cx="24" cy="24" r="5.5"></circle>
+    </svg>
+  `,
+  handshake: `
+    <svg viewBox="0 0 48 48" role="img" aria-label="Trust">
+      <path d="M18.5 27.5 23 32c1.4 1.4 3.6 1.4 5 0l8.2-8.2"></path>
+      <path d="m20 17 3.1-3.1c1.4-1.4 3.6-1.4 5 0l11 11c1.1 1.1 1.1 2.9 0 4l-6.9 6.9c-1.1 1.1-2.9 1.1-4 0L16 23.6"></path>
+      <path d="m9 24 9-9 6 6"></path>
+      <path d="m5 28 10 10"></path>
+      <path d="m43 20-7 7"></path>
+    </svg>
+  `,
+  download: `
+    <svg viewBox="0 0 48 48" role="img" aria-label="Capture leads">
+      <path d="M24 7v22"></path>
+      <path d="m15 20 9 9 9-9"></path>
+      <path d="M10 32v5c0 2.2 1.8 4 4 4h20c2.2 0 4-1.8 4-4v-5"></path>
+    </svg>
+  `,
+  arrow: `
+    <svg viewBox="0 0 48 48" role="img" aria-label="Convert">
+      <circle cx="24" cy="24" r="18"></circle>
+      <path d="M17 24h14"></path>
+      <path d="m26 17 7 7-7 7"></path>
+    </svg>
+  `,
+  devices: `
+    <svg viewBox="0 0 48 48" role="img" aria-label="Deliver">
+      <rect x="6" y="10" width="25" height="19" rx="3"></rect>
+      <rect x="29" y="18" width="13" height="22" rx="3"></rect>
+      <path d="M14 37h14"></path>
+      <path d="M21 29v8"></path>
+      <path d="M34.5 35h2"></path>
+    </svg>
+  `,
+}
+
 function allTools() {
   return journeyStages.flatMap((stage) => stage.tools.map((tool) => ({ ...tool, stage: stage.label })))
 }
@@ -173,7 +214,7 @@ function renderFlow() {
       <div class="minimal-stage-marker">
         <span class="stage-index">${String(index + 1).padStart(2, '0')}</span>
         <span class="stage-orbit ${stage.visual}" aria-hidden="true">
-          <img src="${stage.image}" alt="">
+          ${stageIcons[stage.visual]}
         </span>
       </div>
       <div class="minimal-stage-content">
