@@ -2347,21 +2347,22 @@ input::placeholder {
 
 .flagship-section h1 {
   max-width: 840px;
-  margin-bottom: clamp(1.5rem, 4vw, 2.3rem);
+  margin-bottom: clamp(1.15rem, 3vw, 1.8rem);
   font-size: clamp(2.5rem, 5.2vw, 4.8rem);
 }
 
 .flagship-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.9rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 2vw, 1.25rem);
+  max-width: 920px;
 }
 
 .flagship-grid a {
   position: relative;
   display: grid;
   gap: 0.55rem;
-  min-height: 320px;
+  min-height: 300px;
   align-content: end;
   overflow: hidden;
   border: 1px solid rgba(0, 215, 232, 0.28);
@@ -2401,23 +2402,33 @@ input::placeholder {
 
 .flagship-grid .flagship-logo-card {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at 50% 27%, rgba(0, 215, 232, 0.13), transparent 31%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
     #0c1820;
 }
 
 .flagship-grid .flagship-logo-card img {
-  inset: 14%;
-  width: 72%;
-  height: 42%;
-  margin: auto;
+  top: clamp(2.1rem, 5vw, 3rem);
+  right: clamp(1.6rem, 4vw, 2.4rem);
+  bottom: auto;
+  left: clamp(1.6rem, 4vw, 2.4rem);
+  width: calc(100% - clamp(3.2rem, 8vw, 4.8rem));
+  height: 102px;
   object-fit: contain;
   opacity: 1;
+  transform-origin: center;
   filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.32));
+}
+
+.flagship-grid .game-logo-card img {
+  top: clamp(2.65rem, 5.5vw, 3.45rem);
+  height: 92px;
 }
 
 .flagship-grid .neuro-logo-card img {
   width: 64%;
-  height: 56%;
+  height: 132px;
+  margin: 0 auto;
 }
 
 .flagship-grid a:hover img,
@@ -3165,6 +3176,14 @@ input::placeholder {
 
   .proof-hero h1 {
     font-size: clamp(2.6rem, 12vw, 3.5rem);
+  }
+
+  .flagship-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flagship-grid a {
+    min-height: 280px;
   }
 
   .journey-shell {
