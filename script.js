@@ -95,6 +95,17 @@ document.querySelectorAll('[data-service]').forEach((element) => {
   })
 })
 
+const selectedSolution = localStorage.getItem('rjSelectedSolution')
+if (selectedSolution && serviceInterest) {
+  serviceInterest.value = selectedSolution
+  if (statusBox) {
+    statusBox.textContent = `Interested in: ${selectedSolution}. Send the consultation request and we will start there.`
+    statusBox.className = 'form-status'
+  }
+  if (window.location.hash === '#lead-audit') openFormPanel()
+  localStorage.removeItem('rjSelectedSolution')
+}
+
 function updateHeader() {
   header?.classList.toggle('scrolled', window.scrollY > 12)
 }
