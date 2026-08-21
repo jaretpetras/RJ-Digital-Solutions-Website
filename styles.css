@@ -2415,6 +2415,11 @@ input::placeholder {
   filter: drop-shadow(0 22px 48px rgba(0, 0, 0, 0.32));
 }
 
+.flagship-grid .neuro-logo-card img {
+  width: 64%;
+  height: 56%;
+}
+
 .flagship-grid a:hover img,
 .flagship-grid a:focus-visible img {
   filter: saturate(1) contrast(1.08);

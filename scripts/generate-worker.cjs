@@ -50,6 +50,11 @@ const assets = {
     body: readBase64("assets/flagship-neuro-football.png"),
     encoding: "base64",
   },
+  "/assets/neuro-football-logo.png": {
+    contentType: "image/png",
+    body: readBase64("assets/neuro-football-logo.png"),
+    encoding: "base64",
+  },
   "/assets/flagship-rj-digital-systems.png": {
     contentType: "image/png",
     body: readBase64("assets/flagship-rj-digital-systems.png"),
